@@ -10,7 +10,7 @@ class Item
     @id = Random.rand(1..1000)
     @publish_date = publish_date
     @archived = false
-    @author=nil
+    @author = nil
   end
 
   def genre=(genre)
@@ -18,9 +18,7 @@ class Item
     @genre.items.push(self) unless @genre.items.include?(self)
   end
 
-  def author=(author)
-    @author = author
-  end
+  attr_writer :author
 
   def label=(label)
     @label = label

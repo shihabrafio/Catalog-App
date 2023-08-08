@@ -3,7 +3,7 @@ require './Classes/game'
 require './loaders'
 require 'json'
 
-class App # rubocop:disable Metrics/ClassLength
+class App
   puts "Welcome to The Content Hub!\n\n"
   def initialize
     @authors = []
@@ -26,7 +26,6 @@ class App # rubocop:disable Metrics/ClassLength
     end
   end
 
-
   def list_games
     if @games.empty?
       puts 'There are no games yet'
@@ -38,7 +37,6 @@ class App # rubocop:disable Metrics/ClassLength
       end
     end
   end
-
 
   def add_author(item)
     print('First Name : ')
