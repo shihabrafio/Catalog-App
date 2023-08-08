@@ -1,1 +1,14 @@
-[{"title":"Book 1","color":"red"},{"title":"Book 2","color":"blue"}]
+[
+  {
+    "title": "Book 1",
+    "color": "red"
+  },
+  {
+    "title": "ccc",
+    "color": "eee"
+  },
+  {
+    "title": "qq",
+    "color": "q"
+  }
+]

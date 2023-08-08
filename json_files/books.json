@@ -1,1 +1,20 @@
-[{"publisher":"Publisher 1","cover_state":"null","publish_date":"2017-01-01"},{"publisher":"Publisher 2","cover_state":"null","publish_date":"2017-01-02"}]
+[
+  {
+    "author": null,
+    "publisher": null,
+    "cover_state": null,
+    "publish_date": null
+  },
+  {
+    "author": "sss",
+    "publisher": "qq",
+    "cover_state": "vvv",
+    "publish_date": "dd"
+  },
+  {
+    "author": "q",
+    "publisher": "q",
+    "cover_state": "q",
+    "publish_date": "q"
+  }
+]
