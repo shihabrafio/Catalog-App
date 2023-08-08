@@ -14,8 +14,8 @@ class App
     loader = Loader.new
     loader.load_authors(@authors)
     loader.load_games(@games)
-    loader.load_games(@books)
-    loader.load_games(@labels)
+    loader.load_books(@books)
+    loader.load_labels(@labels)
   end
 
   def list_authors
