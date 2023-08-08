@@ -13,14 +13,14 @@ class Item
     @author = nil
   end
 
-  def genre=(genre)
+  def genre(genre)
     @genre = genre
     @genre.items.push(self) unless @genre.items.include?(self)
   end
 
   attr_writer :author
 
-  def label=(label)
+  def label(label)
     @label = label
     @label.items.push(self) unless @label.items.include?(self)
   end
