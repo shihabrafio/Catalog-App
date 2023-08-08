@@ -8,10 +8,14 @@ class App
   def initialize
     @authors = []
     @games = []
+    @books = []
+    @labels = []
 
     loader = Loader.new
     loader.load_authors(@authors)
     loader.load_games(@games)
+    loader.load_games(@books)
+    loader.load_games(@labels)
   end
 
   def list_authors
@@ -37,6 +41,18 @@ class App
       end
     end
   end
+
+  def list_books
+    if @books.empty?
+      puts 'There are no books yet'
+    else
+      @books.each do |book|
+        print "Publisher: #{book['publisher']}, Cover_State : #{book['cover_state']}, Publish_date : #{book['publish_date']} "
+        puts ''
+      end
+    end
+  end
+
 
   def add_author(item)
     print('First Name : ')
@@ -83,6 +99,8 @@ class App
   def exit_app
     File.write('./json_files/authors.json', JSON.generate(@authors)) if @authors.size.positive?
     File.write('./json_files/games.json', JSON.generate(@games)) if @games.size.positive?
+    File.write('./json_files/books.json', JSON.generate(@books)) if @books.size.positive?
+    File.write('./json_files/books.json', JSON.generate(@labels)) if @labels.size.positive?
     puts 'Thank you for using this app!'
     exit
   end
