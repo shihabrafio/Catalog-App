@@ -20,5 +20,5 @@ module BookModule
         data.push({ 'publisher' => book.publisher, 'cover_state' => book.cover_state, 'publish_date' => book.publish_date })
   end
   File.write('./json_files/books.json', JSON.pretty_generate(data))
-end
+  end
 end
