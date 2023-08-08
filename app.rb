@@ -112,7 +112,7 @@ class App
     File.write('./json_files/authors.json', JSON.generate(@authors)) if @authors.size.positive?
     File.write('./json_files/games.json', JSON.generate(@games)) if @games.size.positive?
     File.write('./json_files/books.json', JSON.generate(@books)) if @books.size.positive?
-    File.write('./json_files/books.json', JSON.generate(@labels)) if @labels.size.positive?
+    File.write('./json_files/labels.json', JSON.generate(@labels)) if @labels.size.positive?
     puts 'Thank you for using this app!'
     exit
   end
