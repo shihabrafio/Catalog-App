@@ -111,7 +111,11 @@ rspec
 - Twitter: [@shihab_uddin19](https://twitter.com/shihab_uddin19)
 - LinkedIn: [Shihab Uddin Khan](https://www.linkedin.com/in/shihab-uddin-khan-45620a16a/)
 
+👤  **Foga Kater Amos**
 
+- GitHub: [@githubhandle](https://github.com/katfogy)
+- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/foga-amos-2b5371103/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
