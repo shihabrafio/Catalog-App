@@ -27,9 +27,9 @@ describe Book do
     expect(book.can_be_archived?).to eq true
   end
 
-#   it 'should validate can_be_archived method to false for good and  less than ten years' do
-#     book.cover_state = 'good'
-#     book.publish_date = '2022-02-30'
-#     expect(book.can_be_archived?).to eq false
-#   end
+  #   it 'should validate can_be_archived method to false for good and  less than ten years' do
+  #     book.cover_state = 'good'
+  #     book.publish_date = '2022-02-30'
+  #     expect(book.can_be_archived?).to eq false
+  #   end
 end

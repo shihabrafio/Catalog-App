@@ -18,8 +18,8 @@ module BookModule
   def create_book
     data = []
     @books.each do |book|
-        data.push({author: book.author, publisher: book.publisher, cover_state: book.cover_state,
-        publish_date: book.publish_date })
+      data.push({ author: book.author, publisher: book.publisher, cover_state: book.cover_state,
+                  publish_date: book.publish_date })
     end
     File.write('./json_files/books.json', JSON.pretty_generate(data))
   end
