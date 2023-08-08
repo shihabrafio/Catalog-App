@@ -53,6 +53,18 @@ class App
     end
   end
 
+  def list_labels
+    if @labels.empty?
+      puts 'There are no labels yet'
+    else
+      @labels.each do |label|
+        print "Title : #{label['title']}, Color : #{label['color']}"
+        puts ''
+      end
+    end
+  end
+
+  
 
   def add_author(item)
     print('First Name : ')
