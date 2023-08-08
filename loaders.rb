@@ -21,7 +21,7 @@ class Loader
 
   def load_labels(labels)
     if File.exist?('./json_files/labels.json')
-      JSON.parse(File.read('./json files/labels.json')).each do |label|
+      JSON.parse(File.read('./json_files/labels.json')).each do |label|
         labels << label
       end
     else
