@@ -9,26 +9,6 @@ class Loader
     end
   end
 
-  def load_books(books)
-    if File.exist?('./json_files/books.json')
-      JSON.parse(File.read('./json_files/books.json')).each do |book|
-        books << book
-      end
-    else
-      books = []
-    end
-  end
-
-  def load_labels(labels)
-    if File.exist?('./json_files/labels.json')
-      JSON.parse(File.read('./json files/labels.json')).each do |label|
-        labels << label
-      end
-    else
-      labels = []
-    end
-  end
-
   def load_games(games)
     if File.exist?('./json_files/games.json')
       JSON.parse(File.read('./json_files/games.json')).each do |game|

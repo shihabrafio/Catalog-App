@@ -1,17 +1,30 @@
 require './Classes/author'
 require './Classes/game'
+require './Classes/book'
+require './Classes/label'
 require './loaders'
+require './modules/book_logic'
+require './modules/label_logic'
 require 'json'
 
 class App
   puts "Welcome to The Content Hub!\n\n"
+  include BookModule
+  include LabelModule
   def initialize
     @authors = []
     @games = []
+    @books = load_books
+    @labels = load_labels
 
     loader = Loader.new
     loader.load_authors(@authors)
     loader.load_games(@games)
+  end
+
+  def save
+    create_book
+    create_label
   end
 
   def list_authors
@@ -35,6 +48,20 @@ class App
         print "Multiplayer: #{hash['multiplayer']}, Last Played: #{hash['last_played_at']}"
         puts ''
       end
+    end
+  end
+
+  def list_books
+    puts 'There are no books yet!' if @books.empty?
+    @books.each do |book|
+      puts "Publisher: #{book.publisher}, Publish Date: #{book.publish_date}, Cover state: #{book.cover_state}"
+    end
+  end
+
+  def list_labels
+    puts 'no labels yet!' if @labels.empty?
+    @labels.each do |label|
+      puts "Title: #{label.title}, color: #{label.color}"
     end
   end
 
@@ -79,10 +106,30 @@ class App
     puts 'Game created successfully'
   end
 
+  def add_book
+    puts 'Please enter the title of the book:'
+    title = gets.chomp
+    puts 'Please enter the publish date of the book'
+    publish_date = gets.chomp
+    puts 'Enter the color name'
+    color = gets.chomp
+    puts 'Enter the author\'s name'
+    author = gets.chomp
+    puts 'Please enter the Publisher of the book'
+    publisher = gets.chomp
+    puts 'Please enter the cover state of the book(eg. good, bad)'
+    cover_state = gets.chomp
+    puts 'book created'
+    book = Book.new(author, publisher, cover_state, publish_date)
+    @books.push(book)
+    @labels.push(Label.new(title, color))
+  end
+
   # exit function
   def exit_app
     File.write('./json_files/authors.json', JSON.generate(@authors)) if @authors.size.positive?
     File.write('./json_files/games.json', JSON.generate(@games)) if @games.size.positive?
+    save
     puts 'Thank you for using this app!'
     exit
   end
