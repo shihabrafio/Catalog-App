@@ -38,9 +38,12 @@ def choice(user_answer, response)
     0 => :exit_app
   }
 
-  action = actions[user_answer]
-
-  response.send(action)
+  if actions.key?(user_answer)
+    action = actions[user_answer]
+    response.send(action)
+  else
+    puts 'Invalid option. Please choose a valid option.'
+  end
 end
 
 def main
