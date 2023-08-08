@@ -12,6 +12,7 @@ module BookModule
     else
       File.write(file, [])
     end
+    data
   end
 
   def write_book
