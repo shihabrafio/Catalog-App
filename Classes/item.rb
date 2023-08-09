@@ -28,7 +28,7 @@ class Item
   end
 
   def can_be_archived?(item)
-    return true if (Date.today - Date.parse(item.publish_date)).to_i / 365 >= 10
+    true if (Date.today - Date.parse(item.publish_date)).to_i / 365 >= 10
   end
 
   def move_to_archive
