@@ -76,7 +76,20 @@ class App
         end
       end
     end
-
+  def list_music
+    if @albums.empty?
+      puts 'There are no music albums yet'
+    else
+      @albums.each do |album|
+        puts "Album Name: #{album.name}"
+        puts "Publish Date: #{album.publish_date}"
+        puts "Cover State: #{album.cover_state}"
+        puts "On Spotify: #{album.on_spotify ? 'Yes' : 'No'}"
+        puts "Archived: #{album.archived ? 'Yes' : 'No'}"
+        puts '---'
+      end
+    end
+  end
   def add_author(item)
     print('First Name : ')
     first_name = gets.chomp
