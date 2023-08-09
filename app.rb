@@ -184,9 +184,17 @@ class App
       album.genre = new_genre
     end
   end
+  def save_genres_to_json
+    File.write('./json_files/genres.json', JSON.generate(@genres.map(&:to_hash))) if @genres.size.positive?
+  end
 
+  def save_albums_to_json
+    File.write('./json_files/albums.json', JSON.generate(@albums.map(&:to_hash))) if @albums.size.positive?
+  end
   # exit function
   def exit_app
+    save_genres_to_json
+    save_albums_to_json
     File.write('./json_files/authors.json', JSON.generate(@authors)) if @authors.size.positive?
     File.write('./json_files/games.json', JSON.generate(@games)) if @games.size.positive?
     save
