@@ -9,12 +9,18 @@
     "author": "sss",
     "publisher": "qq",
     "cover_state": "vvv",
-    "publish_date": "dd"
+    "publish_date": null
   },
   {
     "author": "q",
     "publisher": "q",
     "cover_state": "q",
-    "publish_date": "q"
+    "publish_date": null
+  },
+  {
+    "author": "cbc",
+    "publisher": "kbs",
+    "cover_state": "good",
+    "publish_date": null
   }
 ]
