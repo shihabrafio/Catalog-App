@@ -149,7 +149,6 @@ class App
     @books.push(book)
     @labels.push(Label.new(title, color))
   end
-
   def add_music_album
     puts 'Creating a music album... Add details below.'
     print 'Album Name: '
@@ -171,7 +170,21 @@ class App
     @albums << album
 
     puts 'Music album created successfully'
+
+    puts 'What genre is the above music album?'
+    genre_name = gets.chomp
+
+    existing_genre = @genres.find { |g| g.name == genre_name }
+
+    if existing_genre
+      album.genre = existing_genre
+    else
+      new_genre = Genre.new(genre_name)
+      @genres << new_genre
+      album.genre = new_genre
+    end
   end
+
   # exit function
   def exit_app
     File.write('./json_files/authors.json', JSON.generate(@authors)) if @authors.size.positive?
