@@ -18,7 +18,8 @@ class App
     @games = []
     @books = load_books
     @labels = load_labels
-    @albums = []  # Make sure @albums is defined
+    @albums = []
+    @genres = []
 
     loader = Loader.new
     loader.load_authors(@authors)
@@ -66,6 +67,15 @@ class App
       puts "Title: #{label.title}, color: #{label.color}"
     end
   end
+    def list_genres
+      if @genres.empty?
+        puts 'There are no genres yet'
+      else
+        @genres.each do |genre|
+          puts "Genre ID: #{genre.id}, Name: #{genre.name}"
+        end
+      end
+    end
 
   def add_author(item)
     print('First Name : ')
