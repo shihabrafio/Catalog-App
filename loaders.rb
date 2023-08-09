@@ -18,5 +18,4 @@ class Loader
       games = []
     end
   end
-
 end
