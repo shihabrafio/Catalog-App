@@ -1,13 +1,15 @@
+require './loaders'
 require './Classes/author'
 require './Classes/game'
 require './Classes/book'
 require './Classes/label'
 require './Classes/genre'
-require './loaders'
 require './modules/book_logic'
 require './modules/label_logic'
 require './Classes/music'
 require 'json'
+require './modules/load-genres'
+require './modules/load-music'
 
 class App
   puts "Welcome to The Content Hub!\n\n"
@@ -18,10 +20,12 @@ class App
     @games = []
     @books = load_books
     @labels = load_labels
-    @albums = []
-    @genres = []
+    @genres = load_genres_from_json
+    @albums = load_albums_from_json
 
     loader = Loader.new
+    loader.load_authors(@authors)
+    loader.load_games(@games)
     loader.load_authors(@authors)
     loader.load_games(@games)
   end
