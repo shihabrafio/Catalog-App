@@ -25,6 +25,7 @@ class App
     loader.load_authors(@authors)
     loader.load_games(@games)
   end
+
   def save
     create_book
     create_label
@@ -67,15 +68,17 @@ class App
       puts "Title: #{label.title}, color: #{label.color}"
     end
   end
-    def list_genres
-      if @genres.empty?
-        puts 'There are no genres yet'
-      else
-        @genres.each do |genre|
-          puts "Genre ID: #{genre.id}, Name: #{genre.name}"
-        end
+
+  def list_genres
+    if @genres.empty?
+      puts 'There are no genres yet'
+    else
+      @genres.each do |genre|
+        puts "Genre ID: #{genre.id}, Name: #{genre.name}"
       end
     end
+  end
+
   def list_music
     if @albums.empty?
       puts 'There are no music albums yet'
@@ -90,6 +93,7 @@ class App
       end
     end
   end
+
   def add_author(item)
     print('First Name : ')
     first_name = gets.chomp
@@ -149,6 +153,7 @@ class App
     @books.push(book)
     @labels.push(Label.new(title, color))
   end
+
   def add_music_album
     puts 'Creating a music album... Add details below.'
     print 'Album Name: '
@@ -184,6 +189,7 @@ class App
       album.genre = new_genre
     end
   end
+
   def save_genres_to_json
     File.write('./json_files/genres.json', JSON.generate(@genres.map(&:to_hash))) if @genres.size.positive?
   end
@@ -191,6 +197,7 @@ class App
   def save_albums_to_json
     File.write('./json_files/albums.json', JSON.generate(@albums.map(&:to_hash))) if @albums.size.positive?
   end
+
   # exit function
   def exit_app
     save_genres_to_json
