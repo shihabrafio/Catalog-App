@@ -2,9 +2,11 @@ require './Classes/author'
 require './Classes/game'
 require './Classes/book'
 require './Classes/label'
+require './Classes/genre'
 require './loaders'
 require './modules/book_logic'
 require './modules/label_logic'
+require './Classes/music'
 require 'json'
 
 class App
@@ -16,12 +18,12 @@ class App
     @games = []
     @books = load_books
     @labels = load_labels
+    @albums = []  # Make sure @albums is defined
 
     loader = Loader.new
     loader.load_authors(@authors)
     loader.load_games(@games)
   end
-
   def save
     create_book
     create_label
@@ -125,6 +127,28 @@ class App
     @labels.push(Label.new(title, color))
   end
 
+  def add_music_album
+    puts 'Creating a music album... Add details below.'
+    print 'Album Name: '
+    name = gets.chomp
+
+    print 'Publish Date: '
+    publish_date = gets.chomp
+
+    print 'Cover State (good, bad, etc.): '
+    cover_state = gets.chomp
+
+    print 'On Spotify (true/false): '
+    on_spotify = gets.chomp.downcase == 'true'
+
+    print 'Archived (true/false): '
+    archived = gets.chomp.downcase == 'true'
+
+    album = MusicAlbum.new(name, publish_date, cover_state, on_spotify, archived: archived)
+    @albums << album
+
+    puts 'Music album created successfully'
+  end
   # exit function
   def exit_app
     File.write('./json_files/authors.json', JSON.generate(@authors)) if @authors.size.positive?
