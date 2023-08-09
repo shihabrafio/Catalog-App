@@ -29,9 +29,6 @@ class Item
 
   def can_be_archived?(item)
     return true if (Date.today - Date.parse(item.publish_date)).to_i / 365 >= 10
-    # current_date = Time.now
-    # publish_year = Date.strptime(@publish_date, '%Y-%m-%d').strftime('%Y').to_i
-    # current_date - publish_year > 10
   end
 
   def move_to_archive
