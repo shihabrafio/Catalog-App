@@ -8,7 +8,16 @@ class MusicAlbum < Item
     @cover_state = cover_state
     @on_spotify = on_spotify
   end
-
+  def to_hash
+    {
+      'id' => @id,
+      'name' => @name,
+      'publish_date' => @publish_date,
+      'cover_state' => @cover_state,
+      'on_spotify' => @on_spotify,
+      'archived' => @archived
+    }
+  end
   def can_be_archived?
     super || @cover_state == "bad"
   end
