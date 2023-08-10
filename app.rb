@@ -7,14 +7,14 @@ require './Classes/genre'
 require './modules/book_logic'
 require './modules/label_logic'
 require './Classes/music'
+require './modules/music_logic'
 require 'json'
 require './modules/load_genres'
-require './modules/load_music'
-require './modules/add_music'
 class App
   puts "Welcome to The Content Hub!\n\n"
   include BookModule
   include LabelModule
+  include MusicLibrary
   def initialize
     @authors = []
     @games = []
