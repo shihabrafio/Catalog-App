@@ -1,23 +1,31 @@
+require './loaders'
 require './Classes/author'
 require './Classes/game'
 require './Classes/book'
 require './Classes/label'
-require './loaders'
+require './Classes/genre'
 require './modules/book_logic'
 require './modules/label_logic'
+require './Classes/music'
+require './modules/music_logic'
 require 'json'
-
+require './modules/load_genres'
 class App
   puts "Welcome to The Content Hub!\n\n"
   include BookModule
   include LabelModule
+  include MusicLibrary
   def initialize
     @authors = []
     @games = []
     @books = load_books
     @labels = load_labels
+    @genres = load_genres_from_json
+    @albums = load_albums_from_json
 
     loader = Loader.new
+    loader.load_authors(@authors)
+    loader.load_games(@games)
     loader.load_authors(@authors)
     loader.load_games(@games)
   end
@@ -62,6 +70,31 @@ class App
     puts 'no labels yet!' if @labels.empty?
     @labels.each do |label|
       puts "Title: #{label.title}, color: #{label.color}"
+    end
+  end
+
+  def list_genres
+    if @genres.empty?
+      puts 'There are no genres yet'
+    else
+      @genres.each do |genre|
+        puts "Genre ID: #{genre.id}, Name: #{genre.name}"
+      end
+    end
+  end
+
+  def list_music
+    if @albums.empty?
+      puts 'There are no music albums yet'
+    else
+      @albums.each do |album|
+        puts "Album Name: #{album.name}"
+        puts "Publish Date: #{album.publish_date}"
+        puts "Cover State: #{album.cover_state}"
+        puts "On Spotify: #{album.on_spotify ? 'Yes' : 'No'}"
+        puts "Archived: #{album.archived ? 'Yes' : 'No'}"
+        puts '---'
+      end
     end
   end
 
@@ -125,8 +158,18 @@ class App
     @labels.push(Label.new(title, color))
   end
 
+  def save_genres_to_json
+    File.write('./json_files/genres.json', JSON.generate(@genres.map(&:to_hash))) if @genres.size.positive?
+  end
+
+  def save_albums_to_json
+    File.write('./json_files/albums.json', JSON.generate(@albums.map(&:to_hash))) if @albums.size.positive?
+  end
+
   # exit function
   def exit_app
+    save_genres_to_json
+    save_albums_to_json
     File.write('./json_files/authors.json', JSON.generate(@authors)) if @authors.size.positive?
     File.write('./json_files/games.json', JSON.generate(@games)) if @games.size.positive?
     save
