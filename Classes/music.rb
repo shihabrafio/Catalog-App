@@ -21,6 +21,6 @@ class MusicAlbum < Item
   end
 
   def can_be_archived?
-    super || @cover_state == 'bad'
+    super && @on_spotify
   end
 end
