@@ -101,7 +101,7 @@ rspec
 
 👤 **Gakii Beryl**
 
-- GitHub: [@berylcl] (https://github.com/berylcl)
+- GitHub: [@berylcl](https://github.com/berylcl)
 - Twitter: [omg_its_beryl](https://twitter.com/omg_its_beryl)
 - LinkedIn: [gakii](https://www.linkedin.com/in/gakii-beryl/)
 
@@ -114,7 +114,7 @@ rspec
 👤  **Foga Kater Amos**
 
 - GitHub: [@githubhandle](https://github.com/katfogy)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
+- Twitter: [@twitterhandle](https://twitter.com/Katfogy)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/foga-amos-2b5371103/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
