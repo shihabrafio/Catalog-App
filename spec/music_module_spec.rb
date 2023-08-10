@@ -13,7 +13,7 @@ describe MusicLibrary do
     it 'creates a music album and assigns genre' do
       allow(self).to receive(:puts)
       allow(self).to receive(:print)
-      
+
       allow(self).to receive(:gets).and_return(
         'Album 3', '2022-03-01', 'good', 'true', 'false', 'Genre 1'
       )
