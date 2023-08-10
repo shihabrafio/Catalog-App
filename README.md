@@ -108,7 +108,6 @@ rspec
 👤 **A.I.M. Shihab Uddin Khan**
 
 - GitHub: [@shihabrafio](https://github.com/shihabrafio)
-- Twitter: [@shihab_uddin19](https://twitter.com/shihab_uddin19)
 - LinkedIn: [Shihab Uddin Khan](https://www.linkedin.com/in/shihab-uddin-khan-45620a16a/)
 
 👤  **Foga Kater Amos**
